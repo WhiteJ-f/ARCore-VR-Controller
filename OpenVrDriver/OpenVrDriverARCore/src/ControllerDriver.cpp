@@ -221,14 +221,14 @@ DriverPose_t ControllerDriver::GetPose()
 	
 	pose.deviceIsConnected = true;
 	pose.poseIsValid = true;
-	pose.result = true ? vr::ETrackingResult::TrackingResult_Running_OK : vr::ETrackingResult::TrackingResult_Running_OutOfRange;
+	pose.result = TrackingResult_Running_OK;
 	pose.willDriftInYaw = false;
 	pose.shouldApplyHeadModel = false;
 	pose.qDriverFromHeadRotation.w = pose.qWorldFromDriverRotation.w = pose.qRotation.w = 1.0;
 
 	pose.vecPosition[0] = posx;
 	pose.vecPosition[1] = posy;
-	pose.vecPosition[2] = posz;
+	pose.vecPosition[2] = posz - 0.7f;
 
 	pose.qRotation.w = rotw;
 	pose.qRotation.x = rotx;
